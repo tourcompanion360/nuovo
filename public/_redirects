@@ -1,0 +1,12 @@
+# Netlify SPA Redirects
+# This ensures all routes are handled by index.html for client-side routing
+/*    /index.html    200
+
+# Cache static assets for 1 year
+/assets/*  /assets/:splat  200  Cache-Control: public, max-age=31536000, immutable
+
+# Ensure API requests are not caught by the SPA rule
+/api/*  /api/:splat  200
+
+# Handle 404s by serving index.html for all other routes
+/* /index.html 404

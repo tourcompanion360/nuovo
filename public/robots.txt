@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# SEO ottimizzazione per Intermobil
+Sitemap: https://tourcompanion.com/sitemap.xml
+
+# Blocca file di sistema
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /*.json
+Disallow: /src/
+Disallow: /node_modules/
+
+# Permetti risorse importanti
+Allow: /icon-*.png
+Allow: /apple-touch-icon.png
+Allow: /screenshot-*.png
+
+# Crawler specifici
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
