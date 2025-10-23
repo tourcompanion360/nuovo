@@ -51,8 +51,22 @@ const App = () => {
                 }>
                   <Routes>
                     <Route path="/auth" element={<Auth />} />
-                    <Route path="/pricing" element={<Pricing />} />
-                    <Route path="/billing" element={<Billing />} />
+                    <Route
+                      path="/pricing"
+                      element={
+                        <ProtectedRoute requiredRole="creator">
+                          <Pricing />
+                        </ProtectedRoute>
+                      }
+                    />
+                    <Route
+                      path="/billing"
+                      element={
+                        <ProtectedRoute requiredRole="creator">
+                          <Billing />
+                        </ProtectedRoute>
+                      }
+                    />
                     <Route
                       path="/"
                       element={
@@ -107,12 +121,20 @@ const App = () => {
                     />
                     {/* Test route for client portal - bypasses magic link requirement */}
                     <Route
-                      path="/test-client/:projectId"
-                      element={<TestClientPortalView />}
+                      path="/test-portal"
+                      element={
+                        <ProtectedRoute>
+                          <TestClientPortal />
+                        </ProtectedRoute>
+                      }
                     />
                     <Route
-                      path="/test-portal"
-                      element={<TestClientPortal />}
+                      path="/portal/:projectId"
+                      element={
+                        <ProtectedRoute>
+                          <ClientPortal />
+                        </ProtectedRoute>
+                      }
                     />
                     <Route
                       path="/admin"
