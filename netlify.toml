@@ -1,7 +1,6 @@
 [build]
   command = "npm run build"
   publish = "dist"
-  functions = "netlify/functions"
 
 # Redirect all requests to index.html for SPA routing
 [[redirects]]
@@ -20,11 +19,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;"
 
 [build.environment]
   # Supabase Configuration
@@ -40,7 +34,4 @@
   VITE_ENABLE_DEBUG = "false"
   
   # Enable build plugins
-  NETLIFY_USE_YARN = "true"
   
-  # Enable Next.js support (if needed)
-  # NEXT_TELEMETRY_DISABLED = "1"

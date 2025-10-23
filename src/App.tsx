@@ -51,22 +51,8 @@ const App = () => {
                 }>
                   <Routes>
                     <Route path="/auth" element={<Auth />} />
-                    <Route
-                      path="/pricing"
-                      element={
-                        <ProtectedRoute requiredRole="creator">
-                          <Pricing />
-                        </ProtectedRoute>
-                      }
-                    />
-                    <Route
-                      path="/billing"
-                      element={
-                        <ProtectedRoute requiredRole="creator">
-                          <Billing />
-                        </ProtectedRoute>
-                      }
-                    />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/billing" element={<Billing />} />
                     <Route
                       path="/"
                       element={
@@ -84,9 +70,7 @@ const App = () => {
                             </div>
                           </div>
                         }>
-                          <ProtectedRoute>
-                            <Index />
-                          </ProtectedRoute>
+                          <Index />
                         </ErrorBoundary>
                       }
                     />
@@ -107,9 +91,7 @@ const App = () => {
                             </div>
                           </div>
                         }>
-                          <ProtectedRoute>
-                            <Index />
-                          </ProtectedRoute>
+                          <Index />
                         </ErrorBoundary>
                       }
                     />
@@ -130,11 +112,7 @@ const App = () => {
                     />
                     <Route
                       path="/test-portal"
-                      element={
-                        <ProtectedRoute>
-                          <TestClientPortal />
-                        </ProtectedRoute>
-                      }
+                      element={<TestClientPortal />}
                     />
                     <Route
                       path="/admin"
@@ -157,14 +135,6 @@ const App = () => {
                             <AdminDashboard />
                           </AdminRoute>
                         </ErrorBoundary>
-                      }
-                    />
-                    <Route
-                      path="/portal/:projectId"
-                      element={
-                        <ProtectedRoute>
-                          <ClientPortal />
-                        </ProtectedRoute>
                       }
                     />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
